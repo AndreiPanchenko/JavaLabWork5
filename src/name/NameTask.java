@@ -13,7 +13,6 @@ public class NameTask {
   public void execute() {
     System.out.println("=== Задание 7.2: Обработка файла с именами (Stream API) ===");
 
-    // УБИРАЕМ ВЫБОР ВАРИАНТА - используем только файловый ввод
     System.out.println("Чтение данных из файла names.txt...");
 
     // Обрабатываем файл с именами
@@ -81,3 +80,4 @@ public class NameTask {
     return testData;
   }
 }
+
