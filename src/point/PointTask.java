@@ -1,4 +1,4 @@
-// src/point/PointTask.java
+
 package point;
 
 import main.InputChecker;
@@ -59,26 +59,22 @@ public class PointTask {
 
   // Демонстрирует создание линий между точками ломаной
 
+  // Демонстрирует создание линий между точками ломаной
   private void demonstrateLines(Polyline polyline) {
     System.out.println("--- Линии ломаной ---");
-
-    // Для демонстрации создаем список точек из ломаной
-    List<Point> processedPoints = new ArrayList<>();
-    for (String point : polyline.toString().replace("Ломаная линия [", "")
-        .replace("]", "")
-        .split(", ")) {
-      String[] coords = point.replace("{", "").replace("}", "").split(";");
-      double x = Double.parseDouble(coords[0]);
-      double y = Double.parseDouble(coords[1]);
-      processedPoints.add(new Point(x, y));
-    }
+    // Создаем копию списка точек, чтобы не изменять оригинальный список
+    List<Point> processedPoints = new ArrayList<>(polyline.getPoints());
 
     // Сортируем точки по X для правильного построения линий
     processedPoints.sort(Comparator.comparingDouble(Point::getX));
 
     // Создаем и выводим линии между последовательными точками
     for (int i = 0; i < processedPoints.size() - 1; i++) {
-      Line line = new Line(processedPoints.get(i), processedPoints.get(i + 1));
+      Point start = processedPoints.get(i);
+      Point end = processedPoints.get(i + 1);
+
+      Line line = new Line(start, end);
+
       System.out.println(line);
     }
   }
