@@ -1,4 +1,3 @@
-// src/point/Polyline.java
 package point;
 
 import java.util.List;
@@ -15,6 +14,10 @@ public class Polyline {
     this.points = points;
   }
 
+  // Позволяет получить список точек без возможности его изменения извне
+  public List<Point> getPoints() {
+    return points;
+  }
   // Строковое представление ломаной линии
 
   @Override
